@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * I had finished this before reading the grading rubric
      * as such you can see why I opted for an additional end slide
-     * the code here is kept small and dynamic to easily add radios
+     * the code here is kept small and dynamic to easily add slides
      */
 
     // view references
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         scoreCounter = findViewById(R.id.ScoreCounter);
         fab = findViewById(R.id.fab);
 
-        // get animation references
+        // set animation references
         slideToLeft = AnimationUtils.loadAnimation(this, R.anim.exit_to_left);
         slideFromRight = AnimationUtils.loadAnimation(this, R.anim.enter_from_right);
         slideToBottom = AnimationUtils.loadAnimation(this, R.anim.slide_to_bottom);
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         index = 0; // initialize or reset index
-        score = 0; // initialize or reset index
+        score = 0; // initialize or reset score
         scoreCounter.setText(Integer.toString(score));
         if (scoreLayout.getVisibility() != View.VISIBLE) {
             // show score now that we use it
@@ -365,7 +365,7 @@ public class MainActivity extends AppCompatActivity {
                 fab.setImageResource(R.drawable.ic_arrow_forward_black_24dp);
             }
 
-            else { // throw error because the users trying to break my app wtf
+            else { // throw error because the user is trying to break my app wtf
                 String error = getResources().getString(R.string.error_no_check);
                 showSnackbar(findViewById(R.id.Parent), error + "  Σ(°ロ°)", Snackbar.LENGTH_SHORT);
             }
