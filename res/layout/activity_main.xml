@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.austin.austinsquiz.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <LinearLayout
+        android:id="@+id/TitleLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingBottom="32dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/austins_quiz"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:adjustViewBounds="true"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:src="@drawable/slack"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/slack_me"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/StartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/fab"
+        android:layout_alignTop="@id/fab"
+        android:layout_centerHorizontal="true"
+        android:text="@string/start" />
+
+    <!-- results slide -->
+    <LinearLayout
+        android:id="@+id/Results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/Correct"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="if you see this a bug is loose, call the exterminator"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/MoreInfo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1.8"
+            android:gravity="center_horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="you shouldnt be seeing this unless everything is broken"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <!-- game over slide -->
+    <LinearLayout
+        android:id="@+id/GameOverLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="16dp"
+            android:text="@string/gameOverHeader"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="@string/missingCheckBox"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- can't center a checkbox for some reason? -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/white"
+                android:text="@string/gameOverCheckBox"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="@string/missingEditText"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:hint="@string/gameOverEditText"
+            android:textColor="@color/white"
+            android:textColorHint="#707070"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="@string/gameOverTextBody"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/QuestionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="placeholder question text"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/RadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/Button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="32dp"
+                android:buttonTint="@color/white"
+                android:text="Button 1 text"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/Button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="32dp"
+                android:buttonTint="@color/white"
+                android:text="Button 2 text"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/Button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:buttonTint="@color/white"
+                android:text="Button 3 text"
+                android:textColor="@color/white" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_check_black_24dp"
+        android:tint="@color/white"
+        android:visibility="invisible" />
+
+    <!-- score counter -->
+    <LinearLayout
+        android:id="@+id/Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/fab"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/score"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/ScoreCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+</RelativeLayout>
